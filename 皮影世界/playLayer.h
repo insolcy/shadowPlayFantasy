@@ -13,5 +13,8 @@
 @interface playLayer : CCLayer {
     
 }
+
+-(void)noNewGame:(id)sender;
+-(void)onSet:(id)sender;
 -(void) back: (id) sender;
 @end
