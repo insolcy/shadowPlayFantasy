@@ -14,9 +14,15 @@
     CCSprite *forearm;
     CCSprite *arm;
     CCSprite *finger;
+    CCMenuItemImage *starbutton;
+    CCMenuItemImage *howbutton;
+    CCMenuItemImage *setButton;
+    CCMenu *menu;
+    CCSprite *bg;
 }
 
 -(void)noNewGame:(id)sender;
 -(void)onSet:(id)sender;
 -(void) back: (id) sender;
+-(void)removeButton;
 @end

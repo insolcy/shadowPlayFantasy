@@ -11,7 +11,7 @@
 -(void)addBG
 {
     CGSize winSize =[[CCDirector sharedDirector]winSize];
-    CCSprite *bg=[CCSprite spriteWithFile:@"background1.png"];
+    bg=[CCSprite spriteWithFile:@"background1.png"];
     bg.position=ccp(winSize.width/2, winSize.height/2);
     [self addChild:bg];
 }
@@ -21,10 +21,10 @@
     CGSize winSize =[[CCDirector sharedDirector]winSize];
     
     
-  	CCMenuItemImage *starbutton = [CCMenuItemImage itemWithNormalImage:@"StartTheGame1.png" selectedImage:@"StartTheGame-Down1.png" target:self selector:@selector(onSet:)];
-    CCMenuItemImage *howbutton = [CCMenuItemImage itemWithNormalImage:@"HowToPlay.png" selectedImage:@"HowToPlay-Down.png" target:self selector:@selector(onSet:)];
-    CCMenuItemImage *setButton = [CCMenuItemImage itemWithNormalImage:@"Settings1.png" selectedImage:@"Settings1.png" target:self selector:@selector(onSet:)];
-    CCMenu *menu = [CCMenu menuWithItems:starbutton,howbutton,setButton, nil];
+  	starbutton = [CCMenuItemImage itemWithNormalImage:@"StartTheGame1.png" selectedImage:@"StartTheGame-Down1.png" target:self selector:@selector(onSet:)];
+    howbutton = [CCMenuItemImage itemWithNormalImage:@"HowToPlay.png" selectedImage:@"HowToPlay-Down.png" target:self selector:@selector(onSet:)];
+    setButton = [CCMenuItemImage itemWithNormalImage:@"Settings1.png" selectedImage:@"Settings1.png" target:self selector:@selector(onSet:)];
+    menu = [CCMenu menuWithItems:starbutton,howbutton,setButton, nil];
 	
     
 	
@@ -66,8 +66,15 @@
     [SceneManager goSet];
 }
 
+
+
 -(void)onSet:(id)sender{
-    //[self addBody];
+    
+   
+    menu.position =ccp(-400,-400);
+    UIImage *background3 = [UIImage imageNamed:@"background3.png"];
+    CCTexture2D *newbg=[[CCTextureCache sharedTextureCache]addCGImage:background3.CGImage forKey:nil];
+    [bg setTexture:newbg];
     CGSize winSize =[[CCDirector sharedDirector]winSize];
     //大臂动作
     CCAction *action = [CCRotateBy actionWithDuration:2 angle:5];//旋转动作
@@ -82,10 +89,10 @@
     CCAction *fingerAction = [CCMoveTo actionWithDuration:2 position:(ccp(640,220))];
     [finger runAction:fingerAction];
     [finger runAction:action3];
-    CCDelayTime* waitAction = [CCDelayTime actionWithDuration:2.1];
+    CCDelayTime* waitAction = [CCDelayTime actionWithDuration:2];
     CCCallFunc* vanishAction = [CCCallFunc actionWithTarget:self selector:@selector(moveSet:)]; //调用removeSprite:方法
     CCSequence* sequence = [CCSequence actions:waitAction, vanishAction, nil];
-    [self runAction:sequence];
+    //[self runAction:sequence];
 }
 
 
