@@ -19,6 +19,12 @@
     CCMenuItemImage *setButton;
     CCMenu *menu;
     CCSprite *bg;
+    CCSprite *slider;
+    CCMenuItemImage *head1;
+    CCMenu *headMenu;
+    CCSprite *Stick;
+    CCMenu *menu1;
+
 }
 
 -(void)noNewGame:(id)sender;
