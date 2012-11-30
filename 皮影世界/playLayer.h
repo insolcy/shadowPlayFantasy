@@ -11,7 +11,9 @@
 #import "SceneManager.h"
 
 @interface playLayer : CCLayer {
-    
+    CCSprite *forearm;
+    CCSprite *arm;
+    CCSprite *finger;
 }
 
 -(void)noNewGame:(id)sender;
