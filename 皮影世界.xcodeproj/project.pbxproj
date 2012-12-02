@@ -18,6 +18,7 @@
 		2B408278166903AF00AA4AA4 /* Slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B408277166903AF00AA4AA4 /* Slider.png */; };
 		2B40827A166904E200AA4AA4 /* head1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B408279166904E200AA4AA4 /* head1.png */; };
 		2B40827C1669074600AA4AA4 /* Stick.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B40827B1669074600AA4AA4 /* Stick.png */; };
+		2B79FB20166B614100A14A28 /* actor1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B79FB1F166B614100A14A28 /* actor1-1.png */; };
 		2BB120F8166788AA0083DCC4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB120F7166788AA0083DCC4 /* QuartzCore.framework */; };
 		2BB120FA166788AA0083DCC4 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB120F9166788AA0083DCC4 /* OpenGLES.framework */; };
 		2BB120FC166788AA0083DCC4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB120FB166788AA0083DCC4 /* OpenAL.framework */; };
@@ -173,6 +174,7 @@
 		2B408277166903AF00AA4AA4 /* Slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slider.png; sourceTree = "<group>"; };
 		2B408279166904E200AA4AA4 /* head1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = head1.png; sourceTree = "<group>"; };
 		2B40827B1669074600AA4AA4 /* Stick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stick.png; sourceTree = "<group>"; };
+		2B79FB1F166B614100A14A28 /* actor1-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actor1-1.png"; sourceTree = "<group>"; };
 		2BB120F3166788AA0083DCC4 /* 皮影世界.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "皮影世界.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BB120F7166788AA0083DCC4 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2BB120F9166788AA0083DCC4 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -475,6 +477,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B79FB1E166B5E9D00A14A28 /* actor1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = actor1;
+			sourceTree = "<group>";
+		};
 		2BB120E8166788AA0083DCC4 = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +542,8 @@
 		2BB1210A166788AA0083DCC4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2B79FB1E166B5E9D00A14A28 /* actor1 */,
+				2B79FB1F166B614100A14A28 /* actor1-1.png */,
 				2B40827B1669074600AA4AA4 /* Stick.png */,
 				2B408279166904E200AA4AA4 /* head1.png */,
 				2B408277166903AF00AA4AA4 /* Slider.png */,
@@ -1002,6 +1013,7 @@
 				2B408278166903AF00AA4AA4 /* Slider.png in Resources */,
 				2B40827A166904E200AA4AA4 /* head1.png in Resources */,
 				2B40827C1669074600AA4AA4 /* Stick.png in Resources */,
+				2B79FB20166B614100A14A28 /* actor1-1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

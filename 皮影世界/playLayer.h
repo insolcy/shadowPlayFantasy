@@ -23,6 +23,7 @@
     CCMenuItemImage *head1;
     CCMenu *headMenu;
     CCSprite *Stick;
+    CCSprite *actor1_1;
     CCMenu *menu1;
 
 }

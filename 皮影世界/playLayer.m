@@ -76,19 +76,25 @@
     CCTexture2D *newbg=[[CCTextureCache sharedTextureCache]addCGImage:background3.CGImage forKey:nil];
     [bg setTexture:newbg];
 }
+-(void)changeBg1
+{
+    UIImage *background3 = [UIImage imageNamed:@"background1.png"];
+    CCTexture2D *newbg=[[CCTextureCache sharedTextureCache]addCGImage:background3.CGImage forKey:nil];
+    [bg setTexture:newbg];
+}
 -(void)actorPressed1:(id)sender{
-    Stick = [CCSprite spriteWithFile:@"Stick.png"];
+    Stick = [CCSprite spriteWithFile:@"actor1-1.png"];
     Stick.anchorPoint =ccp(0.1, 0.1);
     Stick.position = ccp(500, -Stick.contentSize.height);
     [self addChild:Stick];
-    CCAction *action1 = [CCRotateBy actionWithDuration:1 angle:-40];
+    CCAction *action1 = [CCRotateBy actionWithDuration:1 angle:-30];
     CCAction *action11 = [CCMoveTo actionWithDuration:1 position:(ccp(500,0))];
     [Stick runAction:action1];
     [Stick runAction:action11];
     CCDelayTime* waitAction = [CCDelayTime actionWithDuration:1];
-    CCFiniteTimeAction *action2 = [CCRotateBy actionWithDuration:1 angle:35];
-    CCFiniteTimeAction *action3 = [CCRotateBy actionWithDuration:1.3 angle:-15];
-    CCFiniteTimeAction *action4 = [CCRotateBy actionWithDuration:1.7 angle:5];
+    CCFiniteTimeAction *action2 = [CCRotateBy actionWithDuration:1 angle:50];
+    CCFiniteTimeAction *action3 = [CCRotateBy actionWithDuration:1.3 angle:-35];
+    CCFiniteTimeAction *action4 = [CCRotateBy actionWithDuration:1.7 angle:15];
     CCSequence* sequence = [CCSequence actions:waitAction,action2,action3,action4, nil];
     [Stick runAction:sequence];
 }
@@ -97,19 +103,10 @@
     [self leftButton];
     menu.position =ccp(-400,-400);
     //人物选择
+    [self changeBg];
     CGSize winSize =[[CCDirector sharedDirector]winSize];
-    slider = [CCSprite spriteWithFile:@"Slider.png"];
-    slider.position = ccp(300, winSize.height+winSize.height/2);
-    [self addChild:slider];
-    CCAction *sliderMove = [CCMoveTo actionWithDuration:1 position:ccp(300, winSize.height/2)];
-    [slider runAction:sliderMove];
-    head1 = [CCMenuItemImage itemWithNormalImage:@"head1.png" selectedImage:@"head1.png"  target:self selector:@selector(actorPressed1:)];
-    headMenu = [CCMenu menuWithItems: head1,nil];
-    headMenu .position = ccp(300, winSize.height+winSize.height/2);
-    [headMenu  alignItemsVerticallyWithPadding: 20.0f];
-    [self addChild:headMenu];
-    CCAction *MenuMove = [CCMoveTo actionWithDuration:1 position:ccp(300, winSize.height/2)];
-    [headMenu  runAction:MenuMove];
+
+
     //大臂动作
     CCAction *action = [CCRotateBy actionWithDuration:2 angle:5];//旋转动作
     [forearm runAction:action];
@@ -134,12 +131,24 @@
     Stick.position=ccp(-400,-400);
     slider.position= ccp(-400, -400);
     menu1.position =ccp(-400, -400);
-    [self changeBg];
+    [self changeBg1];
     CGSize winSize =[[CCDirector sharedDirector]winSize];
+    slider = [CCSprite spriteWithFile:@"Slider.png"];
+    slider.position = ccp(300, winSize.height+winSize.height/2);
+    [self addChild:slider];
+    CCAction *sliderMove = [CCMoveTo actionWithDuration:1 position:ccp(300, winSize.height/2)];
+    [slider runAction:sliderMove];
+    head1 = [CCMenuItemImage itemWithNormalImage:@"head1.png" selectedImage:@"head1.png"  target:self selector:@selector(actorPressed1:)];
+    headMenu = [CCMenu menuWithItems: head1,nil];
+    headMenu .position = ccp(300, winSize.height+winSize.height/2);
+    [headMenu  alignItemsVerticallyWithPadding: 20.0f];
+    [self addChild:headMenu];
+    CCAction *MenuMove = [CCMoveTo actionWithDuration:1 position:ccp(300, winSize.height/2)];
+    [headMenu  runAction:MenuMove];
     CCMenuItemImage *backButton=[CCMenuItemImage itemWithNormalImage:@"Back.png" selectedImage:@"Back.png" target:self selector:@selector(back:)];
     CCMenuItemImage *helpButton=[CCMenuItemImage itemWithNormalImage:@"Help.png" selectedImage:@"Help.png" target:self selector:@selector(back:)];
-    CCMenuItemImage *nextButton=[CCMenuItemImage itemWithNormalImage:@"Next.png" selectedImage:@"Next.png" target:self selector:@selector(back:)];
-    CCMenu *menu2 = [CCMenu menuWithItems: nextButton,backButton,helpButton ,nil];
+    CCMenuItemImage *SettingsFinishedButton=[CCMenuItemImage itemWithNormalImage:@"SettingsFinished.png" selectedImage:@"SettingsFinished.png" target:self selector:@selector(back:)];
+    CCMenu *menu2 = [CCMenu menuWithItems: SettingsFinishedButton,backButton,helpButton ,nil];
     menu2.position = ccp(backButton.contentSize.width/2,winSize.height/2);
     [menu2 alignItemsVerticallyWithPadding: 20.0f];
     [self addChild: menu2];
@@ -162,10 +171,10 @@
 {
     CGSize winSize =[[CCDirector sharedDirector]winSize];
     CCMenuItemImage *backButton=[CCMenuItemImage itemWithNormalImage:@"Back.png" selectedImage:@"Back.png" target:self selector:@selector(back:)];
-    CCMenuItemImage *setFinishButton=[CCMenuItemImage itemWithNormalImage:@"SettingsFinished.png" selectedImage:@"SettingsFinished.png" target:self selector:@selector(NextButtonPressed:)];
+    CCMenuItemImage *NextButton=[CCMenuItemImage itemWithNormalImage:@"Next.png" selectedImage:@"Next.png" target:self selector:@selector(NextButtonPressed:)];
     CCMenuItemImage *helpButton=[CCMenuItemImage itemWithNormalImage:@"Help.png" selectedImage:@"Help.png" target:self selector:@selector(back:)];
 
-    menu1 = [CCMenu menuWithItems: setFinishButton,backButton,helpButton ,nil];
+    menu1 = [CCMenu menuWithItems: NextButton,backButton,helpButton ,nil];
     menu1.position = ccp(backButton.contentSize.width/2,winSize.height/2);
     [menu1 alignItemsVerticallyWithPadding: 20.0f];
     [self addChild: menu1];
